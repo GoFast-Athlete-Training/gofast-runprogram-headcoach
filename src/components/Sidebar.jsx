@@ -4,13 +4,12 @@ import { Button } from './ui/button.jsx';
 import { 
   LayoutDashboard, 
   MessageSquare, 
-  Users, 
-  TrendingUp,
   DollarSign,
   BookOpen,
   Settings,
   LogOut,
-  Building
+  Building,
+  Network
 } from 'lucide-react';
 import { cn } from '../lib/utils.js';
 
@@ -20,9 +19,10 @@ const Sidebar = ({ onLogout }) => {
 
   const menuItems = [
     { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { path: '/funnel', label: 'Site Funnel', icon: TrendingUp },
     { path: '/curriculum', label: 'Curriculum', icon: BookOpen },
     { path: '/communicate', label: 'Communicate', icon: MessageSquare },
+    { path: '/crm', label: 'CRM', icon: Building },
+    { path: '/ecosystem', label: 'Ecosystem', icon: Network },
     { path: '/pricing', label: 'Pricing', icon: DollarSign },
     { path: '/settings', label: 'Settings', icon: Settings },
   ];

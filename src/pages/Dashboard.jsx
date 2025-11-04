@@ -7,10 +7,11 @@ import {
   Building, 
   Users, 
   MessageSquare, 
-  TrendingUp, 
   BookOpen,
   Activity,
-  ArrowRight
+  ArrowRight,
+  UserPlus,
+  BarChart3
 } from 'lucide-react';
 
 const Dashboard = ({ onLogout }) => {
@@ -69,46 +70,46 @@ const Dashboard = ({ onLogout }) => {
           {/* Main Actions */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card 
-              className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-orange-400 hover:scale-105 bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200"
-              onClick={() => navigate('/curriculum')}
+              className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-purple-400 hover:scale-105 bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200"
+              onClick={() => navigate('/coaches')}
             >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-16 h-16 bg-orange-500 text-white rounded-xl flex items-center justify-center shadow-lg">
-                    <BookOpen className="w-8 h-8" />
+                  <div className="w-16 h-16 bg-purple-500 text-white rounded-xl flex items-center justify-center shadow-lg">
+                    <UserPlus className="w-8 h-8" />
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-xl">Set Week Plan</CardTitle>
-                    <CardDescription>Create and publish workout plans</CardDescription>
+                    <CardTitle className="text-xl">Recruit</CardTitle>
+                    <CardDescription>Add coaches and manage sites</CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">Current: Week 7</span>
-                  <ArrowRight className="w-5 h-5 text-orange-600" />
+                  <span className="text-sm text-gray-600">Coaches & sites</span>
+                  <ArrowRight className="w-5 h-5 text-purple-600" />
                 </div>
               </CardContent>
             </Card>
 
             <Card 
               className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-blue-400 hover:scale-105 bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200"
-              onClick={() => navigate('/communicate')}
+              onClick={() => navigate('/curriculum')}
             >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-16 h-16 bg-blue-500 text-white rounded-xl flex items-center justify-center shadow-lg">
-                    <MessageSquare className="w-8 h-8" />
+                    <BookOpen className="w-8 h-8" />
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-xl">Communicate</CardTitle>
-                    <CardDescription>Send messages to parents & coaches</CardDescription>
+                    <CardTitle className="text-xl">Manage</CardTitle>
+                    <CardDescription>Curriculum, communication & daily operations</CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">Select audience & send</span>
+                  <span className="text-sm text-gray-600">Week plans & messages</span>
                   <ArrowRight className="w-5 h-5 text-blue-600" />
                 </div>
               </CardContent>
@@ -116,22 +117,22 @@ const Dashboard = ({ onLogout }) => {
 
             <Card 
               className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-green-400 hover:scale-105 bg-gradient-to-br from-green-50 to-green-100 border-green-200"
-              onClick={() => navigate('/funnel')}
+              onClick={() => navigate('/performance')}
             >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-16 h-16 bg-green-500 text-white rounded-xl flex items-center justify-center shadow-lg">
-                    <TrendingUp className="w-8 h-8" />
+                    <BarChart3 className="w-8 h-8" />
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-xl">Outreach for New Sites</CardTitle>
-                    <CardDescription>Track prospects and manage pipeline</CardDescription>
+                    <CardTitle className="text-xl">View Performance</CardTitle>
+                    <CardDescription>See how your program is performing</CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">Manage site funnel</span>
+                  <span className="text-sm text-gray-600">Analytics & reports</span>
                   <ArrowRight className="w-5 h-5 text-green-600" />
                 </div>
               </CardContent>

@@ -43,7 +43,7 @@ const Welcome = () => {
               size="lg"
               className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-7 text-xl font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200 rounded-full"
             >
-              View My Dashboard
+              Take a Look Inside
               <ArrowRight className="w-6 h-6 ml-3" />
             </Button>
           </div>

@@ -107,8 +107,8 @@ const Coaches = ({ onLogout }) => {
         <main className="flex-1 p-8">
           <div className="mb-8 flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Communicate - Coaches</h1>
-              <p className="text-gray-600">Manage communication with all coaches</p>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Recruit & Manage</h1>
+              <p className="text-gray-600">Add coaches and manage your program sites</p>
             </div>
             <Button onClick={() => alert('Add new coach functionality')}>
               <Plus className="w-4 h-4 mr-2" />

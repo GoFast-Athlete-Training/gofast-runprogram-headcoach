@@ -11,52 +11,52 @@ const Funnel = ({ onLogout }) => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [showAddModal, setShowAddModal] = useState(false);
-  const [newProspect, setNewProspect] = useState({ name: '', contact: '', email: '', phone: '', stage: 'Lead' });
+  const [newSite, setNewSite] = useState({ name: '', contact: '', email: '', phone: '', stage: 'Interested' });
 
-  // Mock funnel data
-  const [prospects, setProspects] = useState([
-    { id: '1', name: 'Lincoln Elementary', contact: 'Principal Johnson', email: 'johnson@lincoln.edu', phone: '(555) 111-2222', stage: 'Lead', date: '2025-01-10', notes: 'Interested in starting program for 4th-6th graders' },
-    { id: '2', name: 'Riverside Middle School', contact: 'Dr. Martinez', email: 'martinez@riverside.edu', phone: '(555) 222-3333', stage: 'Qualified', date: '2025-01-08', notes: 'Budget approved, waiting on board approval' },
-    { id: '3', name: 'Sunset Elementary', contact: 'Ms. Anderson', email: 'anderson@sunset.edu', phone: '(555) 333-4444', stage: 'Proposal', date: '2025-01-12', notes: 'Proposal sent, following up next week' },
-    { id: '4', name: 'Oak Park School', contact: 'Mr. Thompson', email: 'thompson@oakpark.edu', phone: '(555) 444-5555', stage: 'Negotiation', date: '2025-01-14', notes: 'Discussing pricing and start date' },
-    { id: '5', name: 'Green Valley Elementary', contact: 'Principal Lee', email: 'lee@greenvalley.edu', phone: '(555) 555-6666', stage: 'Closed Won', date: '2025-01-15', notes: 'Signed contract, starting Week 8' },
+  // Mock sites data
+  const [sites, setSites] = useState([
+    { id: '1', name: 'Lincoln Elementary', contact: 'Principal Johnson', email: 'johnson@lincoln.edu', phone: '(555) 111-2222', stage: 'Interested', date: '2025-01-10', notes: 'Interested in starting program for 4th-6th graders' },
+    { id: '2', name: 'Riverside Middle School', contact: 'Dr. Martinez', email: 'martinez@riverside.edu', phone: '(555) 222-3333', stage: 'In Discussion', date: '2025-01-08', notes: 'Budget approved, waiting on board approval' },
+    { id: '3', name: 'Sunset Elementary', contact: 'Ms. Anderson', email: 'anderson@sunset.edu', phone: '(555) 333-4444', stage: 'Planning', date: '2025-01-12', notes: 'Coordinating schedule and start date' },
+    { id: '4', name: 'Oak Park School', contact: 'Mr. Thompson', email: 'thompson@oakpark.edu', phone: '(555) 444-5555', stage: 'Setting Up', date: '2025-01-14', notes: 'Discussing pricing and start date' },
+    { id: '5', name: 'Green Valley Elementary', contact: 'Principal Lee', email: 'lee@greenvalley.edu', phone: '(555) 555-6666', stage: 'Active', date: '2025-01-15', notes: 'Program started, starting Week 8' },
   ]);
 
-  const stages = ['Lead', 'Qualified', 'Proposal', 'Negotiation', 'Closed Won', 'Closed Lost'];
+  const stages = ['Interested', 'In Discussion', 'Planning', 'Setting Up', 'Active', 'Not Interested'];
 
   const getStageColor = (stage) => {
     const colors = {
-      'Lead': 'bg-gray-100 text-gray-800',
-      'Qualified': 'bg-blue-100 text-blue-800',
-      'Proposal': 'bg-purple-100 text-purple-800',
-      'Negotiation': 'bg-orange-100 text-orange-800',
-      'Closed Won': 'bg-green-100 text-green-800',
-      'Closed Lost': 'bg-red-100 text-red-800',
+      'Interested': 'bg-gray-100 text-gray-800',
+      'In Discussion': 'bg-blue-100 text-blue-800',
+      'Planning': 'bg-purple-100 text-purple-800',
+      'Setting Up': 'bg-orange-100 text-orange-800',
+      'Active': 'bg-green-100 text-green-800',
+      'Not Interested': 'bg-red-100 text-red-800',
     };
     return colors[stage] || 'bg-gray-100 text-gray-800';
   };
 
   const getStageIcon = (stage) => {
-    if (stage === 'Closed Won') return <CheckCircle className="w-4 h-4" />;
-    if (stage === 'Closed Lost') return <XCircle className="w-4 h-4" />;
+    if (stage === 'Active') return <CheckCircle className="w-4 h-4" />;
+    if (stage === 'Not Interested') return <XCircle className="w-4 h-4" />;
     return <Clock className="w-4 h-4" />;
   };
 
-  const filteredProspects = prospects.filter(prospect =>
-    prospect.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    prospect.contact.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredSites = sites.filter(site =>
+    site.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    site.contact.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleAddProspect = () => {
-    if (newProspect.name && newProspect.contact) {
-      setProspects([...prospects, { ...newProspect, id: Date.now().toString(), date: new Date().toISOString().split('T')[0] }]);
-      setNewProspect({ name: '', contact: '', email: '', phone: '', stage: 'Lead' });
+  const handleAddSite = () => {
+    if (newSite.name && newSite.contact) {
+      setSites([...sites, { ...newSite, id: Date.now().toString(), date: new Date().toISOString().split('T')[0] }]);
+      setNewSite({ name: '', contact: '', email: '', phone: '', stage: 'Interested' });
       setShowAddModal(false);
     }
   };
 
   const handleStageChange = (id, newStage) => {
-    setProspects(prospects.map(p => p.id === id ? { ...p, stage: newStage } : p));
+    setSites(sites.map(s => s.id === id ? { ...s, stage: newStage } : s));
   };
 
   return (
@@ -67,19 +67,19 @@ const Funnel = ({ onLogout }) => {
         <main className="flex-1 p-8">
           <div className="mb-8 flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Site Funnel</h1>
-              <p className="text-gray-600">Track prospects for new program sites</p>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">New Sites</h1>
+              <p className="text-gray-600">Track schools interested in starting the program</p>
             </div>
             <Button onClick={() => setShowAddModal(true)}>
               <Plus className="w-4 h-4 mr-2" />
-              Add Prospect
+              Add New School
             </Button>
           </div>
 
-          {/* Funnel Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+          {/* Site Status Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mb-6">
             {stages.map((stage) => {
-              const count = prospects.filter(p => p.stage === stage).length;
+              const count = sites.filter(s => s.stage === stage).length;
               return (
                 <Card key={stage}>
                   <CardHeader>
@@ -105,21 +105,21 @@ const Funnel = ({ onLogout }) => {
             </div>
           </div>
 
-          {/* Prospects List */}
+          {/* Sites List */}
           <div className="space-y-4">
-            {filteredProspects.map((prospect) => (
-              <Card key={prospect.id} className="hover:shadow-lg transition-shadow">
+            {filteredSites.map((site) => (
+              <Card key={site.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
-                      <CardTitle className="text-xl">{prospect.name}</CardTitle>
-                      <CardDescription>{prospect.contact} • {prospect.email} • {prospect.phone}</CardDescription>
+                      <CardTitle className="text-xl">{site.name}</CardTitle>
+                      <CardDescription>{site.contact} • {site.email} • {site.phone}</CardDescription>
                     </div>
                     <div className="flex items-center space-x-4">
                       <select
-                        value={prospect.stage}
-                        onChange={(e) => handleStageChange(prospect.id, e.target.value)}
-                        className={`px-3 py-1 rounded-full text-sm font-medium ${getStageColor(prospect.stage)} border-0`}
+                        value={site.stage}
+                        onChange={(e) => handleStageChange(site.id, e.target.value)}
+                        className={`px-3 py-1 rounded-full text-sm font-medium ${getStageColor(site.stage)} border-0`}
                       >
                         {stages.map(stage => (
                           <option key={stage} value={stage}>{stage}</option>
@@ -132,10 +132,10 @@ const Funnel = ({ onLogout }) => {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-gray-600 mb-1">Notes</p>
-                      <p className="text-sm">{prospect.notes}</p>
+                      <p className="text-sm">{site.notes}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-gray-500">Added: {prospect.date}</p>
+                      <p className="text-xs text-gray-500">Added: {site.date}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -148,22 +148,22 @@ const Funnel = ({ onLogout }) => {
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
               <Card className="w-full max-w-md">
                 <CardHeader>
-                  <CardTitle>Add New Prospect</CardTitle>
+                  <CardTitle>Add New School</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Site Name</label>
+                    <label className="block text-sm font-medium mb-2">School Name</label>
                     <Input
-                      value={newProspect.name}
-                      onChange={(e) => setNewProspect({ ...newProspect, name: e.target.value })}
+                      value={newSite.name}
+                      onChange={(e) => setNewSite({ ...newSite, name: e.target.value })}
                       placeholder="e.g., Lincoln Elementary"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Contact Name</label>
                     <Input
-                      value={newProspect.contact}
-                      onChange={(e) => setNewProspect({ ...newProspect, contact: e.target.value })}
+                      value={newSite.contact}
+                      onChange={(e) => setNewSite({ ...newSite, contact: e.target.value })}
                       placeholder="e.g., Principal Johnson"
                     />
                   </div>
@@ -171,19 +171,19 @@ const Funnel = ({ onLogout }) => {
                     <label className="block text-sm font-medium mb-2">Email</label>
                     <Input
                       type="email"
-                      value={newProspect.email}
-                      onChange={(e) => setNewProspect({ ...newProspect, email: e.target.value })}
+                      value={newSite.email}
+                      onChange={(e) => setNewSite({ ...newSite, email: e.target.value })}
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Phone</label>
                     <Input
-                      value={newProspect.phone}
-                      onChange={(e) => setNewProspect({ ...newProspect, phone: e.target.value })}
+                      value={newSite.phone}
+                      onChange={(e) => setNewSite({ ...newSite, phone: e.target.value })}
                     />
                   </div>
                   <div className="flex space-x-2">
-                    <Button onClick={handleAddProspect} className="flex-1">Add Prospect</Button>
+                    <Button onClick={handleAddSite} className="flex-1">Add School</Button>
                     <Button variant="outline" onClick={() => setShowAddModal(false)}>Cancel</Button>
                   </div>
                 </CardContent>
