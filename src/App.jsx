@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import './index.css';
 
 // Import pages
-import Login from './pages/Login.jsx';
+import Welcome from './pages/Welcome.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Curriculum from './pages/Curriculum.jsx';
 import Communicate from './pages/Communicate.jsx';
@@ -20,7 +20,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Welcome />} />
         <Route path="/dashboard" element={<Dashboard onLogout={handleLogout} />} />
         <Route path="/curriculum" element={<Curriculum onLogout={handleLogout} />} />
         <Route path="/communicate" element={<Communicate onLogout={handleLogout} />} />
