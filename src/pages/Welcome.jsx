@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button.jsx';
-import { ArrowRight, Activity } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const Welcome = () => {
   const navigate = useNavigate();
@@ -23,8 +23,8 @@ const Welcome = () => {
         <div className="max-w-4xl w-full">
           {/* Logo/Icon */}
           <div className="flex justify-center mb-8">
-            <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-6 transition-transform">
-              <Activity className="w-12 h-12 text-white" />
+            <div className="w-24 h-24 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-6 transition-transform">
+              <img src="/logo.svg" alt="Boys Gotta Run" className="w-24 h-24" />
             </div>
           </div>
 
