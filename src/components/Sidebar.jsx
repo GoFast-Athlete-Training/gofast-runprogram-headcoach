@@ -9,7 +9,8 @@ import {
   Settings,
   LogOut,
   Building,
-  Network
+  Network,
+  UserPlus
 } from 'lucide-react';
 import { cn } from '../lib/utils.js';
 
@@ -19,11 +20,12 @@ const Sidebar = ({ onLogout }) => {
 
   const menuItems = [
     { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { path: '/curriculum', label: 'Curriculum', icon: BookOpen },
-    { path: '/communicate', label: 'Communicate', icon: MessageSquare },
+    { path: '/recruit', label: 'Recruit', icon: UserPlus },
     { path: '/crm', label: 'CRM', icon: Building },
     { path: '/ecosystem', label: 'Ecosystem', icon: Network },
-    { path: '/pricing', label: 'Pricing', icon: DollarSign },
+    { path: '/curriculum', label: 'Curriculum', icon: BookOpen },
+    { path: '/communicate', label: 'Communicate', icon: MessageSquare },
+    { path: '/pricing', label: 'Registration Setup', icon: DollarSign },
     { path: '/settings', label: 'Settings', icon: Settings },
   ];
 

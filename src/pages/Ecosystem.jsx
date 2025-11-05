@@ -4,7 +4,7 @@ import Header from '../components/Header.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card.jsx';
 import { Button } from '../components/ui/button.jsx';
-import { Network, ArrowLeft, Users, Building, GraduationCap, Link2 } from 'lucide-react';
+import { Network, Users, Building, GraduationCap, Plus } from 'lucide-react';
 
 const Ecosystem = ({ onLogout }) => {
   const navigate = useNavigate();
@@ -21,26 +21,6 @@ const Ecosystem = ({ onLogout }) => {
     }
   };
 
-  const insights = [
-    {
-      title: 'Build Beyond Principals',
-      description: 'Your network includes PTAs, coaches, and community connectors who can open doors to new schools.',
-      icon: Network,
-      color: 'blue'
-    },
-    {
-      title: 'Leverage Relationships',
-      description: 'Active partners in your network can provide warm introductions to schools in their districts.',
-      icon: Link2,
-      color: 'green'
-    },
-    {
-      title: 'Think Ecosystem',
-      description: 'Every connection is a potential pathway. A PTA member might know a principal, a coach might know a district admin.',
-      icon: Users,
-      color: 'purple'
-    }
-  ];
 
   const categories = [
     { name: 'Educational Leaders', icon: GraduationCap, count: 15, color: 'blue' },
@@ -55,15 +35,15 @@ const Ecosystem = ({ onLogout }) => {
       <div className="flex-1 flex flex-col">
         <Header userName="Head Coach" />
         <main className="flex-1 p-8">
-          <div className="mb-8">
-            <Button variant="ghost" onClick={() => navigate('/crm')} className="mb-4">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to CRM
+          <div className="mb-8 flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Your Ecosystem</h1>
+              <p className="text-gray-600">View and manage your network connections</p>
+            </div>
+            <Button onClick={() => navigate('/crm')}>
+              <Building className="w-4 h-4 mr-2" />
+              Add to CRM
             </Button>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Your Ecosystem</h1>
-            <p className="text-gray-600">
-              It's not just about hitting up principals. Build relationships across your entire network.
-            </p>
           </div>
 
           {/* Key Stats */}
@@ -99,41 +79,29 @@ const Ecosystem = ({ onLogout }) => {
             </Card>
           </div>
 
-          {/* Insights */}
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Key Insights</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {insights.map((insight, index) => {
-                const Icon = insight.icon;
-                return (
-                  <Card key={index} className="border-2">
-                    <CardHeader>
-                      <div className="flex items-center space-x-3 mb-2">
-                        <div className={`w-12 h-12 bg-${insight.color}-100 rounded-lg flex items-center justify-center`}>
-                          <Icon className={`w-6 h-6 text-${insight.color}-600`} />
-                        </div>
-                        <CardTitle className="text-lg">{insight.title}</CardTitle>
-                      </div>
-                      <CardDescription>{insight.description}</CardDescription>
-                    </CardHeader>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-
           {/* Ecosystem Breakdown */}
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Your Network by Category</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {categories.map((category) => {
                 const Icon = category.icon;
+                const getColorClasses = () => {
+                  const colors = {
+                    blue: { bg: 'bg-blue-100', text: 'text-blue-600' },
+                    purple: { bg: 'bg-purple-100', text: 'text-purple-600' },
+                    green: { bg: 'bg-green-100', text: 'text-green-600' },
+                    orange: { bg: 'bg-orange-100', text: 'text-orange-600' }
+                  };
+                  return colors[category.color] || colors.blue;
+                };
+                const colorClasses = getColorClasses();
+                
                 return (
                   <Card key={category.name} className="hover:shadow-lg transition-shadow">
                     <CardHeader>
                       <div className="flex items-center justify-between mb-4">
-                        <div className={`w-12 h-12 bg-${category.color}-100 rounded-lg flex items-center justify-center`}>
-                          <Icon className={`w-6 h-6 text-${category.color}-600`} />
+                        <div className={`w-12 h-12 ${colorClasses.bg} rounded-lg flex items-center justify-center`}>
+                          <Icon className={`w-6 h-6 ${colorClasses.text}`} />
                         </div>
                         <div className="text-3xl font-bold text-gray-900">{category.count}</div>
                       </div>
@@ -145,7 +113,7 @@ const Ecosystem = ({ onLogout }) => {
                         className="w-full"
                         onClick={() => navigate('/crm')}
                       >
-                        View in CRM
+                        View Contacts
                       </Button>
                     </CardContent>
                   </Card>

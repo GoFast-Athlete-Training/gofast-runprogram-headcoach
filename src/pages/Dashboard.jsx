@@ -71,7 +71,7 @@ const Dashboard = ({ onLogout }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card 
               className="cursor-pointer hover:shadow-lg transition-all border-2 hover:border-purple-400 hover:scale-105 bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200"
-              onClick={() => navigate('/coaches')}
+              onClick={() => navigate('/recruit')}
             >
               <CardHeader>
                 <div className="flex items-center space-x-3 mb-4">
@@ -80,13 +80,13 @@ const Dashboard = ({ onLogout }) => {
                   </div>
                   <div className="flex-1">
                     <CardTitle className="text-xl">Recruit</CardTitle>
-                    <CardDescription>Add coaches and manage sites</CardDescription>
+                    <CardDescription>New sites, participants & coaches</CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">Coaches & sites</span>
+                  <span className="text-sm text-gray-600">Goals & pipeline</span>
                   <ArrowRight className="w-5 h-5 text-purple-600" />
                 </div>
               </CardContent>

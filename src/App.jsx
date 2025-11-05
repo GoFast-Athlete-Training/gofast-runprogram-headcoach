@@ -9,6 +9,7 @@ import Curriculum from './pages/Curriculum.jsx';
 import Communicate from './pages/Communicate.jsx';
 import Coaches from './pages/Coaches.jsx';
 import Performance from './pages/Performance.jsx';
+import Recruit from './pages/Recruit.jsx';
 import CRM from './pages/CRM.jsx';
 import Ecosystem from './pages/Ecosystem.jsx';
 import Pricing from './pages/Pricing.jsx';
@@ -29,6 +30,7 @@ function App() {
         <Route path="/communicate" element={<Communicate onLogout={handleLogout} />} />
         <Route path="/coaches" element={<Coaches onLogout={handleLogout} />} />
         <Route path="/performance" element={<Performance onLogout={handleLogout} />} />
+        <Route path="/recruit" element={<Recruit onLogout={handleLogout} />} />
         <Route path="/crm" element={<CRM onLogout={handleLogout} />} />
         <Route path="/ecosystem" element={<Ecosystem onLogout={handleLogout} />} />
         <Route path="/pricing" element={<Pricing onLogout={handleLogout} />} />

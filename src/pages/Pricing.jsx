@@ -33,8 +33,8 @@ const Pricing = ({ onLogout }) => {
         <main className="flex-1 p-8 max-w-4xl mx-auto">
           <div className="mb-8 flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Pricing Management</h1>
-              <p className="text-gray-600">Manage program pricing and packages</p>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Registration Setup</h1>
+              <p className="text-gray-600">Configure pricing and registration for each site</p>
             </div>
             {!isEditing ? (
               <Button onClick={() => setIsEditing(true)}>
