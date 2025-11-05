@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button.jsx';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Activity } from 'lucide-react';
 
 const Welcome = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const Welcome = () => {
           {/* Logo/Icon */}
           <div className="flex justify-center mb-8">
             <div className="w-24 h-24 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-6 transition-transform">
-              <img src="/logo.svg" alt="Boys Gotta Run" className="w-24 h-24" />
+              <img src="/logo.avif" alt="Boys Gotta Run" className="w-24 h-24" />
             </div>
           </div>
 

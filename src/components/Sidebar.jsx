@@ -32,7 +32,7 @@ const Sidebar = ({ onLogout }) => {
     <aside className="w-64 bg-white border-r border-gray-200 min-h-screen p-4 flex flex-col">
       <div className="mb-6">
         <div className="flex items-center space-x-2 mb-4">
-          <img src="/logo.svg" alt="Boys Gotta Run" className="w-8 h-8" />
+          <img src="/logo.avif" alt="Boys Gotta Run" className="w-8 h-8" />
           <span className="text-xl font-bold text-gray-900">Site Management</span>
         </div>
         <p className="text-xs text-gray-500">Admin & CRM</p>
