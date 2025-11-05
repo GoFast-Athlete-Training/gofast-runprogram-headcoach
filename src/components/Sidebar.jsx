@@ -9,7 +9,8 @@ import {
   Settings,
   LogOut,
   Network,
-  UserPlus
+  UserPlus,
+  Building
 } from 'lucide-react';
 import { cn } from '../lib/utils.js';
 
