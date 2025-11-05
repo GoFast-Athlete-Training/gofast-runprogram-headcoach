@@ -104,15 +104,18 @@ const RunProgramExperience = () => {
           </div>
         </div>
 
-        {/* Checkout Add-On Section */}
-        <div className="border-t pt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 text-center">Specialized Website Add-On</h2>
-          <p className="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
-            Streamline the checkout process to enhance pricing differences and directly give coaches rosters on payment/registrations success.
-          </p>
-          <div className="max-w-md mx-auto">
+        {/* Checkout Add-On Section - Separate Section */}
+        <div className="mt-16 pt-12 border-t-2 border-gray-200">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Specialized Website Add-On</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Streamline the checkout process to enhance pricing differences and directly give coaches rosters on payment/registrations success.
+            </p>
+          </div>
+          
+          <div className="max-w-lg mx-auto">
             <Card 
-              className={`transition-all hover:shadow-xl ${checkoutFeature.url ? 'cursor-pointer hover:border-orange-500 hover:scale-105' : 'opacity-60'}`}
+              className={`transition-all hover:shadow-xl border-2 ${checkoutFeature.url ? 'cursor-pointer hover:border-blue-400 hover:scale-105 border-blue-200 bg-blue-50' : 'opacity-60'}`}
               onClick={() => {
                 if (checkoutFeature.url) {
                   window.open(checkoutFeature.url, '_blank');
@@ -121,27 +124,26 @@ const RunProgramExperience = () => {
             >
               <CardHeader>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center space-x-2 text-orange-500">
-                    <ShoppingCart className="w-6 h-6" />
+                  <div className="flex items-center space-x-2 text-blue-600">
+                    <ShoppingCart className="w-8 h-8" />
                   </div>
-                  <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">
-                    Add-On
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                    Website Add-On
                   </span>
                 </div>
-                <CardTitle className="text-xl mb-2">{checkoutFeature.label}</CardTitle>
-                <CardDescription className="text-sm">{checkoutFeature.description}</CardDescription>
+                <CardTitle className="text-2xl mb-2">{checkoutFeature.label}</CardTitle>
+                <CardDescription className="text-base">{checkoutFeature.description}</CardDescription>
               </CardHeader>
               <CardContent>
                 {checkoutFeature.url ? (
                   <Button
-                    variant="outline"
-                    className="w-full"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                     onClick={(e) => {
                       e.stopPropagation();
                       window.open(checkoutFeature.url, '_blank');
                     }}
                   >
-                    View Checkout
+                    View Checkout Flow
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
                 ) : (
