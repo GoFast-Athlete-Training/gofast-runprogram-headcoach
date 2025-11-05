@@ -15,6 +15,7 @@ import Ecosystem from './pages/Ecosystem.jsx';
 import Pricing from './pages/Pricing.jsx';
 import Settings from './pages/Settings.jsx';
 import RunProgramExperience from './pages/RunProgramExperience.jsx';
+import Profile from './pages/Profile.jsx';
 
 function App() {
   const handleLogout = () => {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/ecosystem" element={<Ecosystem onLogout={handleLogout} />} />
         <Route path="/pricing" element={<Pricing onLogout={handleLogout} />} />
         <Route path="/settings" element={<Settings onLogout={handleLogout} />} />
+        <Route path="/profile" element={<Profile onLogout={handleLogout} />} />
         <Route path="/runprogramexperience" element={<RunProgramExperience />} />
       </Routes>
     </Router>
